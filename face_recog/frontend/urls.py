@@ -11,10 +11,6 @@ routers.register('employee',userviewset)
 # router = DefaultRouter()
 # router.register('poll', PollViewSet)
 
-# poll_list_view = PollViewSet.as_view({
-#     "get": "list",
-#     "post": "create"
-# })
 
 
 urlpatterns = [
