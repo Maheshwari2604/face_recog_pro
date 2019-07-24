@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url ,include
 from django.conf import settings
-from frontend.views import register
+from frontend.views import register , LoginView , LogoutView
 from django.conf.urls.static import static
 
 # app_name = 'users'
@@ -24,7 +24,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/v1/' , include('frontend.urls'))
+    url(r'^api/v1/' , include('frontend.urls')),
+    url(r'^api/v1/auth/login/', LoginView.as_view()),
+    url(r'^api/v1/auth/logout/', LogoutView.as_view()),
+    
+    # path('api/v1/auth/login/', LoginView.as_view()),
+    # path('api/v1/auth/logout/', LogoutView.as_view()),
+    #url(r'^rest-auth/', include('rest_auth.urls'))
     #path('admin/', admin.site.urls),
     #url(r'^$', include('frontend.urls')),
     #url(r'^$', register , name='register'),
